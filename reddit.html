@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ManyGames – Reddit r/manygames</title>
+  <link rel="stylesheet" href="shared.css"/>
+  <style>
+    .rd-layout { max-width: 1100px; margin: 0 auto; padding: 88px 5vw 40px; display: grid; grid-template-columns: 1fr 312px; gap: 24px; }
+    .rd-banner { height: 130px; background: linear-gradient(135deg, #8b0000, #e63946, #ff9f1c); margin-top: 68px; }
+    .rd-sub-header { background: var(--panel); border-bottom: 1px solid var(--border-dim); padding: 0 5vw; }
+    .rd-sub-profile { display: flex; align-items: center; gap: 16px; padding: 16px 0; flex-wrap: wrap; }
+    .rd-sub-icon { width: 72px; height: 72px; border-radius: 50%; overflow: hidden; background: #fff; border: 4px solid var(--panel); margin-top: -36px; }
+    .rd-sub-icon img { width: 100%; height: 100%; object-fit: contain; }
+    .rd-sub-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 2px; color: #fff; }
+    .rd-sub-handle { font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; color: var(--muted); }
+    .rd-join-btn { padding: 8px 24px; background: var(--accent); color: #fff; font-family: 'Bebas Neue',sans-serif; font-size: 0.9rem; letter-spacing: 2px; border: none; cursor: pointer; margin-left: auto; }
+    .rd-join-btn:hover { background: #c0303c; }
+    .rd-tabs { display: flex; gap: 0; border-top: 1px solid var(--border-dim); }
+    .rd-tab { padding: 12px 20px; font-size: 0.8rem; font-weight: 700; letter-spacing: 1px; color: var(--muted); cursor: pointer; border-bottom: 2px solid transparent; }
+    .rd-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .rd-post { background: var(--panel); border: 1px solid var(--border-dim); margin-bottom: 12px; display: flex; transition: border-color .2s; }
+    .rd-post:hover { border-color: var(--border); }
+    .rd-vote { display: flex; flex-direction: column; align-items: center; gap: 4px; padding: 12px 10px; background: rgba(255,255,255,0.02); min-width: 52px; }
+    .rd-vote-btn { background: none; border: none; color: var(--muted); font-size: 1rem; cursor: pointer; transition: color .2s; padding: 2px; }
+    .rd-vote-btn:hover { color: var(--accent); }
+    .rd-vote-num { font-family: 'Share Tech Mono', monospace; font-size: 0.8rem; color: var(--text); font-weight: 700; }
+    .rd-post-body { padding: 12px 16px; flex: 1; }
+    .rd-post-meta { font-family: 'Share Tech Mono', monospace; font-size: 0.7rem; color: var(--muted); margin-bottom: 6px; }
+    .rd-post-meta span { color: var(--accent); }
+    .rd-post-title { font-size: 1.05rem; font-weight: 700; color: #fff; margin-bottom: 8px; cursor: pointer; }
+    .rd-post-title:hover { color: var(--accent); }
+    .rd-post-flair { display: inline-block; font-size: 0.68rem; padding: 2px 8px; border-radius: 2px; font-family: 'Share Tech Mono',monospace; letter-spacing: 1px; margin-bottom: 6px; }
+    .rd-post-img { width: 100%; margin-bottom: 10px; overflow: hidden; }
+    .rd-post-text { font-size: 0.88rem; color: var(--muted); line-height: 1.6; margin-bottom: 10px; max-height: 80px; overflow: hidden; }
+    .rd-post-actions { display: flex; gap: 12px; }
+    .rd-post-action { font-size: 0.75rem; color: var(--muted); cursor: pointer; display: flex; align-items: center; gap: 5px; padding: 4px 8px; border-radius: 2px; font-family: 'Share Tech Mono',monospace; }
+    .rd-post-action:hover { background: rgba(255,255,255,0.06); color: #fff; }
+    .rd-pinned { border-left: 3px solid #2da44e; }
+
+    .rd-sidebar-box { background: var(--panel); border: 1px solid var(--border-dim); padding: 20px; margin-bottom: 16px; }
+    .rd-sidebar-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; margin-bottom: 12px; color: #fff; }
+    .rd-rule { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid var(--border-dim); font-size: 0.85rem; color: var(--muted); }
+    .rd-rule:last-child { border-bottom: none; }
+    .rd-rule-num { font-family: 'Share Tech Mono', monospace; color: var(--accent); flex-shrink: 0; }
+    @media(max-width:800px){ .rd-layout{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="ManyGames logo"/><span class="nav-logo-text">MANY<span>GAMES</span></span></a>
+  <button class="nav-mobile-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li><li><a href="sobre.html">Sobre</a></li>
+    <li><a href="jogo.html">Kill of Reason</a></li><li><a href="equipa.html">Equipa</a></li>
+    <li><a href="rh.html">Carreiras</a></li><li><a href="regulamento.html">Regulamento</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+<div class="rd-banner"></div>
+<div class="rd-sub-header">
+  <div class="rd-sub-profile">
+    <div class="rd-sub-icon"><img src="logo.png" alt="logo"/></div>
+    <div>
+      <div class="rd-sub-name">r/manygames</div>
+      <div class="rd-sub-handle">A comunidade oficial da ManyGames</div>
+    </div>
+    <button class="rd-join-btn" id="rd-join" onclick="rdJoin(this)">+ Aderir</button>
+  </div>
+  <div class="rd-tabs">
+    <div class="rd-tab active">🔥 Quente</div>
+    <div class="rd-tab">✨ Novo</div>
+    <div class="rd-tab">📈 A subir</div>
+    <div class="rd-tab">🏆 Top</div>
+  </div>
+</div>
+
+<div class="rd-layout">
+  <!-- POSTS -->
+  <div>
+    <!-- Pinned post -->
+    <div class="rd-post rd-pinned reveal">
+      <div class="rd-vote">
+        <button class="rd-vote-btn" onclick="vote(this,'up')">▲</button>
+        <div class="rd-vote-num">12.4k</div>
+        <button class="rd-vote-btn" onclick="vote(this,'down')">▼</button>
+      </div>
+      <div class="rd-post-body">
+        <div class="rd-post-meta">📌 Fixado · Publicado por <span>u/ManyGames_Official</span> · há 2 horas</div>
+        <div class="rd-post-flair" style="background:rgba(230,57,70,0.2);color:var(--accent);">📢 ANÚNCIO OFICIAL</div>
+        <div class="rd-post-title">🎮 SEASON 5 CONFIRMADA — Tudo o que sabemos até agora</div>
+        <div class="rd-post-text">Olá comunidade! A equipa da ManyGames tem muito gosto em confirmar que a Season 5 do Kill of Reason está em desenvolvimento e chegará em breve. Aqui fica um resumo das novidades confirmadas: 3 novos heróis, novo mapa "Vulcão das Ruínas", ranked renovado e muito mais...</div>
+        <div class="rd-post-actions">
+          <div class="rd-post-action">💬 1.8K comentários</div>
+          <div class="rd-post-action">🔗 Partilhar</div>
+          <div class="rd-post-action">⭐ Guardar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rd-post reveal">
+      <div class="rd-vote">
+        <button class="rd-vote-btn" onclick="vote(this,'up')">▲</button>
+        <div class="rd-vote-num">8.7k</div>
+        <button class="rd-vote-btn" onclick="vote(this,'down')">▼</button>
+      </div>
+      <div class="rd-post-body">
+        <div class="rd-post-meta">Publicado por <span>u/DragonSlayer_PT</span> · há 5 horas</div>
+        <div class="rd-post-flair" style="background:rgba(255,159,28,0.15);color:var(--accent2);">🏆 E-SPORTS</div>
+        <div class="rd-post-title">A equipa portuguesa chegou à final do KoR World Championship! Alguém vai ver?</div>
+        <div class="rd-post-text">Não consigo acreditar! Depois de anos a sonhar com isto, finalmente temos representação portuguesa na grande final. Vai ser no DreamHack no próximo mês. Quem vai acompanhar?</div>
+        <div class="rd-post-actions">
+          <div class="rd-post-action">💬 432 comentários</div>
+          <div class="rd-post-action">🔗 Partilhar</div>
+          <div class="rd-post-action">⭐ Guardar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rd-post reveal">
+      <div class="rd-vote">
+        <button class="rd-vote-btn" onclick="vote(this,'up')">▲</button>
+        <div class="rd-vote-num">5.2k</div>
+        <button class="rd-vote-btn" onclick="vote(this,'down')">▼</button>
+      </div>
+      <div class="rd-post-body">
+        <div class="rd-post-meta">Publicado por <span>u/KoR_Fan_2015</span> · há 12 horas</div>
+        <div class="rd-post-flair" style="background:rgba(255,255,255,0.06);color:#fff;">💬 DISCUSSÃO</div>
+        <div class="rd-post-title">Qual é o vosso herói favorito do KoR e porquê? (Thread semanal)</div>
+        <div class="rd-post-text">Toda a semana pergunto isto e adoro as respostas. Pessoalmente continuo com o Shadowblade desde Season 1. É o herói mais difícil de dominar mas quando acerta é absolutamente letal...</div>
+        <div class="rd-post-actions">
+          <div class="rd-post-action">💬 671 comentários</div>
+          <div class="rd-post-action">🔗 Partilhar</div>
+          <div class="rd-post-action">⭐ Guardar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rd-post reveal">
+      <div class="rd-vote">
+        <button class="rd-vote-btn" onclick="vote(this,'up')">▲</button>
+        <div class="rd-vote-num">3.9k</div>
+        <button class="rd-vote-btn" onclick="vote(this,'down')">▼</button>
+      </div>
+      <div class="rd-post-body">
+        <div class="rd-post-meta">Publicado por <span>u/ManyGames_Official</span> · há 1 dia</div>
+        <div class="rd-post-flair" style="background:rgba(230,57,70,0.2);color:var(--accent);">📢 ANÚNCIO OFICIAL</div>
+        <div class="rd-post-title">Update 5.3 — Patch Notes completas</div>
+        <div class="rd-post-text">47 bugs corrigidos, 8 heróis rebalanceados, novo modo Ranked Solo adicionado, melhorias de performance em todos os mapas. Obrigado ao feedback da comunidade — este update é vosso.</div>
+        <div class="rd-post-actions">
+          <div class="rd-post-action">💬 298 comentários</div>
+          <div class="rd-post-action">🔗 Partilhar</div>
+          <div class="rd-post-action">⭐ Guardar</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="rd-post reveal">
+      <div class="rd-vote">
+        <button class="rd-vote-btn" onclick="vote(this,'up')">▲</button>
+        <div class="rd-vote-num">2.1k</div>
+        <button class="rd-vote-btn" onclick="vote(this,'down')">▼</button>
+      </div>
+      <div class="rd-post-body">
+        <div class="rd-post-meta">Publicado por <span>u/GamerPortugal99</span> · há 2 dias</div>
+        <div class="rd-post-flair" style="background:rgba(255,255,255,0.06);color:#fff;">🎨 FAN ART</div>
+        <div class="rd-post-title">Fiz uma ilustração do Drakon, o novo herói da Season 5 — o que acham?</div>
+        <div class="rd-post-img" style="height:140px;background:linear-gradient(135deg,#ff9f1c,#e63946);display:flex;align-items:center;justify-content:center;font-size:4rem;">🐉</div>
+        <div class="rd-post-actions">
+          <div class="rd-post-action">💬 187 comentários</div>
+          <div class="rd-post-action">🔗 Partilhar</div>
+          <div class="rd-post-action">⭐ Guardar</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SIDEBAR -->
+  <div>
+    <div class="rd-sidebar-box reveal">
+      <div style="background:linear-gradient(135deg,#e63946,#8b0000);height:60px;margin:-20px -20px 16px;display:flex;align-items:center;justify-content:center;">
+        <span style="font-family:'Bebas Neue',sans-serif;font-size:1.2rem;letter-spacing:3px;">r/manygames</span>
+      </div>
+      <div class="rd-sidebar-title">Sobre a Comunidade</div>
+      <p style="font-size:0.88rem;margin-bottom:16px;">A comunidade oficial da ManyGames — notícias, discussões, fan art e tudo sobre o Kill of Reason.</p>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px;">
+        <div style="text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:#fff;">847K</div><div style="font-size:0.72rem;color:var(--muted);">MEMBROS</div></div>
+        <div style="text-align:center;"><div style="font-family:'Bebas Neue',sans-serif;font-size:1.5rem;color:var(--accent);">2.4K</div><div style="font-size:0.72rem;color:var(--muted);">ONLINE AGORA</div></div>
+      </div>
+      <button class="rd-join-btn" style="width:100%;margin:0;" id="rd-join2" onclick="rdJoin2(this)">+ Aderir à Comunidade</button>
+    </div>
+
+    <div class="rd-sidebar-box reveal">
+      <div class="rd-sidebar-title">Regras</div>
+      <div class="rd-rule"><span class="rd-rule-num">1.</span><span>Sê respeitoso com todos os membros</span></div>
+      <div class="rd-rule"><span class="rd-rule-num">2.</span><span>Sem spam ou autopromoção</span></div>
+      <div class="rd-rule"><span class="rd-rule-num">3.</span><span>Usa as flairs corretas nas publicações</span></div>
+      <div class="rd-rule"><span class="rd-rule-num">4.</span><span>Sem spoilers sem aviso prévio</span></div>
+      <div class="rd-rule"><span class="rd-rule-num">5.</span><span>Conteúdo relacionado com ManyGames/KoR apenas</span></div>
+    </div>
+
+    <div class="rd-sidebar-box reveal">
+      <div class="rd-sidebar-title">Links Úteis</div>
+      <div style="display:flex;flex-direction:column;gap:8px;">
+        <a href="jogo.html" style="color:var(--accent);text-decoration:none;font-size:0.88rem;">🎮 Descarregar Kill of Reason</a>
+        <a href="sobre.html" style="color:var(--accent);text-decoration:none;font-size:0.88rem;">🏢 Sobre a ManyGames</a>
+        <a href="rh.html" style="color:var(--accent);text-decoration:none;font-size:0.88rem;">💼 Carreiras</a>
+        <a href="contacto.html" style="color:var(--accent);text-decoration:none;font-size:0.88rem;">📧 Suporte</a>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a href="index.html" class="btn-primary" style="font-size:0.85rem;padding:10px 20px;">← Voltar ao Site</a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="logo.png" alt=""/><span class="footer-logo-text">MANY<span>GAMES</span></span></div>
+  <nav class="footer-nav">
+    <a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="jogo.html">Jogo</a>
+    <a href="equipa.html">Equipa</a><a href="rh.html">Carreiras</a><a href="regulamento.html">Regulamento</a><a href="contacto.html">Contacto</a>
+  </nav>
+  <p>© 2015–2026 ManyGames · Porto, Portugal</p>
+</footer>
+<script src="shared.js"></script>
+<script>
+function vote(btn, dir) {
+  const numEl = btn.parentElement.querySelector('.rd-vote-num');
+  const n = parseFloat(numEl.textContent) * (numEl.textContent.includes('k') ? 1000 : 1);
+  numEl.textContent = dir === 'up' ? ((n+1)/1000).toFixed(1)+'k' : ((n-1)/1000).toFixed(1)+'k';
+  btn.style.color = dir === 'up' ? 'var(--accent)' : '#7193ff';
+}
+function rdJoin(btn){ btn.textContent = btn.textContent === '+ Aderir' ? '✓ Aderido' : '+ Aderir'; btn.style.background = btn.textContent==='✓ Aderido'?'#2da44e':'var(--accent)'; }
+function rdJoin2(btn){ btn.textContent = btn.textContent.includes('Aderir') ? '✓ Comunidade Aderida' : '+ Aderir à Comunidade'; btn.style.background = btn.textContent.includes('Aderida')?'#2da44e':'var(--accent)'; }
+</script>
+</body>
+</html>

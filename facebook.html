@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ManyGames – Facebook</title>
+  <link rel="stylesheet" href="shared.css"/>
+  <style>
+    .fb-header { padding-top: 68px; background: var(--panel); }
+
+    /* Avatar row — avatar overlaps up over the bg colour */
+    .fb-profile-row {
+      display: flex; align-items: flex-end; gap: 20px;
+      padding: 0 5vw; flex-wrap: wrap;
+    }
+    .fb-avatar {
+      width: 100px; height: 100px;
+      border: 4px solid var(--panel);
+      border-radius: 50%; overflow: hidden; background: #fff;
+      flex-shrink: 0;
+    }
+    .fb-avatar img { width: 100%; height: 100%; object-fit: contain; }
+    .fb-name-area { padding-bottom: 8px; flex: 1; min-width: 200px; }
+    .fb-name { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 2px; color: #fff; }
+    .fb-followers-line { font-size: 0.85rem; color: var(--muted); }
+
+    /* Cover banner — BELOW the avatar row */
+    .fb-cover {
+      width: 100%; height: 320px;
+      position: relative; overflow: hidden;
+      background: #1a0005;
+    }
+    .fb-cover img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+    .fb-cover-overlay {
+      position: absolute; inset: 0;
+      background: linear-gradient(180deg, transparent 30%, rgba(0,0,0,0.6) 100%);
+      display: flex; align-items: flex-end; padding: 20px 24px;
+    }
+    .fb-cover-label {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 2rem; letter-spacing: 5px;
+      color: rgba(255,255,255,0.9);
+      text-shadow: 0 2px 16px rgba(0,0,0,0.8);
+    }
+    .fb-cover-edit {
+      position: absolute; bottom: 16px; right: 20px;
+      background: rgba(255,255,255,0.15); border: 1px solid rgba(255,255,255,0.3);
+      color: #fff; padding: 8px 16px; font-size: 0.8rem; cursor: pointer;
+      font-family: 'Bebas Neue',sans-serif; letter-spacing: 1px;
+    }
+
+    .fb-actions-row { display: flex; gap: 10px; flex-wrap: wrap; padding: 14px 5vw 12px; }
+    .fb-action-btn { padding: 9px 20px; font-family: 'Bebas Neue', sans-serif; font-size: 0.88rem; letter-spacing: 2px; cursor: pointer; display: flex; align-items: center; gap: 8px; border: none; }
+    .fb-action-btn.blue { background: var(--accent); color: #fff; }
+    .fb-action-btn.grey { background: rgba(255,255,255,0.1); color: #fff; }
+    .fb-action-btn.grey:hover { background: rgba(255,255,255,0.18); }
+
+    .fb-tabs { display: flex; gap: 0; overflow-x: auto; border-top: 1px solid var(--border-dim); padding: 0 5vw; }
+    .fb-tab { padding: 12px 20px; font-size: 0.82rem; font-weight: 700; letter-spacing: 1px; color: var(--muted); cursor: pointer; white-space: nowrap; border-bottom: 3px solid transparent; }
+    .fb-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+    .fb-main { max-width: 1060px; margin: 0 auto; padding: 24px 5vw; display: grid; grid-template-columns: 340px 1fr; gap: 24px; }
+
+    .fb-sidebar-card { background: var(--panel); border: 1px solid var(--border-dim); padding: 20px; margin-bottom: 16px; }
+    .fb-sidebar-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 2px; margin-bottom: 14px; color: #fff; }
+    .fb-about-row { display: flex; align-items: center; gap: 10px; padding: 6px 0; font-size: 0.88rem; color: var(--muted); }
+    .fb-about-row span { color: var(--text); }
+
+    .fb-post { background: var(--panel); border: 1px solid var(--border-dim); padding: 20px; margin-bottom: 16px; }
+    .fb-post-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
+    .fb-post-avatar { width: 42px; height: 42px; border-radius: 50%; overflow: hidden; }
+    .fb-post-avatar img { width: 100%; height: 100%; object-fit: contain; background: #fff; }
+    .fb-post-meta-name { font-weight: 700; color: #fff; font-size: 0.9rem; }
+    .fb-post-meta-time { font-size: 0.75rem; color: var(--muted); }
+    .fb-post-body { color: var(--text); font-size: 0.95rem; line-height: 1.6; margin-bottom: 14px; }
+    .fb-post-photo { width: 100%; object-fit: cover; max-height: 320px; display: block; margin-bottom: 12px; border: 1px solid var(--border-dim); }
+    .fb-reactions-bar { display: flex; justify-content: space-between; font-size: 0.85rem; color: var(--muted); padding: 8px 0; border-top: 1px solid var(--border-dim); border-bottom: 1px solid var(--border-dim); margin-bottom: 8px; }
+    .fb-reaction-btn { flex: 1; text-align: center; padding: 8px; cursor: pointer; border: none; background: none; color: var(--muted); font-family: 'Rajdhani',sans-serif; font-size: 0.9rem; font-weight: 700; transition: color .2s, background .2s; }
+    .fb-reaction-btn:hover { background: rgba(255,255,255,0.06); color: #fff; }
+    .fb-reaction-btn.liked { color: var(--accent); }
+
+    @media(max-width:800px){ .fb-main{grid-template-columns:1fr;} }
+  </style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="ManyGames logo"/><span class="nav-logo-text">MANY<span>GAMES</span></span></a>
+  <button class="nav-mobile-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li><li><a href="sobre.html">Sobre</a></li>
+    <li><a href="jogo.html">Kill of Reason</a></li><li><a href="equipa.html">Equipa</a></li>
+    <li><a href="rh.html">Carreiras</a></li><li><a href="regulamento.html">Regulamento</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+<div class="fb-header">
+  <!-- BANNER EM CIMA — igual ao Reddit -->
+  <div style="height:130px;background:linear-gradient(135deg,#8b0000,#e63946,#ff9f1c);margin-top:68px;"></div>
+
+  <!-- Perfil abaixo do banner -->
+  <div style="background:var(--panel);padding-top:4px;">
+    <div class="fb-profile-row" style="margin-top:0;padding-top:0;">
+      <div class="fb-avatar" style="margin-top:-36px;"><img src="logo.png" alt="logo"/></div>
+      <div class="fb-name-area">
+        <div class="fb-name">ManyGames <span style="font-size:0.9rem;color:var(--accent);">✓</span></div>
+        <div class="fb-followers-line">Página de videojogos · <strong style="color:#fff;">3.1M</strong> gostos · <strong style="color:#fff;">3.4M</strong> seguidores</div>
+      </div>
+      <div style="padding-bottom:8px;display:flex;gap:10px;flex-wrap:wrap;">
+        <button class="fb-action-btn blue" onclick="this.textContent='✓ Gosto dado'">👍 Gosto</button>
+        <button class="fb-action-btn grey" onclick="this.textContent='✓ A seguir'">➕ Seguir</button>
+        <button class="fb-action-btn grey">✉ Mensagem</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tabs -->
+  <div class="fb-tabs">
+    <div class="fb-tab active">Início</div>
+    <div class="fb-tab">Publicações</div>
+    <div class="fb-tab">Sobre</div>
+    <div class="fb-tab">Fotos</div>
+    <div class="fb-tab">Vídeos</div>
+    <div class="fb-tab">Comunidade</div>
+  </div>
+</div>
+
+<div class="fb-main">
+  <!-- LEFT SIDEBAR -->
+  <div>
+    <div class="fb-sidebar-card reveal">
+      <div class="fb-sidebar-title">Sobre</div>
+      <div class="fb-about-row">🎮 <span>Estúdio de desenvolvimento de videojogos</span></div>
+      <div class="fb-about-row">📍 <span>Valongo, Porto, Portugal</span></div>
+      <div class="fb-about-row">🌐 <span><a href="index.html" style="color:var(--accent);text-decoration:none;">manygames.com</a></span></div>
+      <div class="fb-about-row">📅 <span>Fundada em Janeiro 2015</span></div>
+      <div class="fb-about-row">👥 <span>3.1M pessoas dão gosto</span></div>
+      <div class="fb-about-row">🏅 <span>ISO 9001:2015 Certified</span></div>
+    </div>
+
+    <!-- Foto da planta como galeria -->
+    <div class="fb-sidebar-card reveal">
+      <div class="fb-sidebar-title">Fotos das Instalações</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-bottom:8px;">
+        <img src="img_entrada.png" style="width:100%;aspect-ratio:1;object-fit:cover;"/>
+        <img src="img_corredor.png" style="width:100%;aspect-ratio:1;object-fit:cover;"/>
+        <img src="img_vestuario.png" style="width:100%;aspect-ratio:1;object-fit:cover;"/>
+        <img src="img_planta.png" style="width:100%;aspect-ratio:1;object-fit:cover;"/>
+      </div>
+      <div style="font-size:0.8rem;color:var(--muted);text-align:center;">4 fotos · Ver todas</div>
+    </div>
+
+    <div style="text-align:center;margin-top:8px;">
+      <a href="index.html" class="btn-primary" style="font-size:0.85rem;padding:10px 20px;">← Voltar ao Site</a>
+    </div>
+  </div>
+
+  <!-- FEED -->
+  <div>
+
+    <!-- Post 1 — Entrada da sede -->
+    <div class="fb-post reveal">
+      <div class="fb-post-header">
+        <div class="fb-post-avatar"><img src="logo.png" alt=""/></div>
+        <div><div class="fb-post-meta-name">ManyGames</div><div class="fb-post-meta-time">há 1 hora · 🌐</div></div>
+      </div>
+      <div class="fb-post-body">🏢 Bem-vindos à nossa sede em <strong>Valongo, Porto</strong>! Um espaço moderno, criativo e pensado para inspirar os melhores criadores de videojogos. É aqui que o <strong>Kill of Reason</strong> ganha vida todos os dias.</div>
+      <img class="fb-post-photo" src="img_entrada.png" alt="Entrada da Sede ManyGames"/>
+      <div class="fb-reactions-bar">
+        <span>❤️👍🔥 28.4K</span>
+        <span style="display:flex;gap:12px;"><span>1.1K comentários</span><span>2.3K partilhas</span></span>
+      </div>
+      <div style="display:flex;">
+        <button class="fb-reaction-btn" onclick="this.classList.toggle('liked');this.textContent=this.classList.contains('liked')?'❤️ Gosto':'👍 Gosto'">👍 Gosto</button>
+        <button class="fb-reaction-btn">💬 Comentar</button>
+        <button class="fb-reaction-btn">↗ Partilhar</button>
+      </div>
+    </div>
+
+    <!-- Post 2 — Diversidade e inclusão -->
+    <div class="fb-post reveal">
+      <div class="fb-post-header">
+        <div class="fb-post-avatar"><img src="logo.png" alt=""/></div>
+        <div><div class="fb-post-meta-name">ManyGames</div><div class="fb-post-meta-time">há 2 dias · 🌐</div></div>
+      </div>
+      <div class="fb-post-body">🤝 <strong>Diversidade e Inclusão</strong> não são apenas palavras para nós — são os pilares da nossa cultura.<br><br>Na ManyGames promovemos um ambiente inclusivo com foco em:<br>✅ Equipas diversas<br>✅ Clima inclusivo<br><br>Acreditamos que equipas diferentes produzem jogos melhores para todos.</div>
+      <img class="fb-post-photo" src="img_diversidade.png" alt="Diversidade e Inclusão ManyGames"/>
+      <div class="fb-reactions-bar">
+        <span>❤️🤝😍 41.7K</span>
+        <span style="display:flex;gap:12px;"><span>3.2K comentários</span><span>8.1K partilhas</span></span>
+      </div>
+      <div style="display:flex;">
+        <button class="fb-reaction-btn liked">❤️ Gosto</button>
+        <button class="fb-reaction-btn">💬 Comentar</button>
+        <button class="fb-reaction-btn">↗ Partilhar</button>
+      </div>
+    </div>
+
+    <!-- Post 3 — Cultura rebelde -->
+    <div class="fb-post reveal">
+      <div class="fb-post-header">
+        <div class="fb-post-avatar"><img src="logo.png" alt=""/></div>
+        <div><div class="fb-post-meta-name">ManyGames</div><div class="fb-post-meta-time">há 4 dias · 🌐</div></div>
+      </div>
+      <div class="fb-post-body">🔥 <strong>Cultura Rebelde</strong> — aprimoramos todos os aspetos de como trabalhamos, nos divertimos e colaboramos juntos.<br><br>Os nossos pilares:<br>🎯 Liderança forte<br>⚙️ Sistemas e Processos<br>📚 Educação e Reconhecimento<br><br>Começamos com novos valores e espalhamo-los por toda a empresa!</div>
+      <img class="fb-post-photo" src="img_cultura.png" alt="Cultura Rebelde ManyGames"/>
+      <div class="fb-reactions-bar">
+        <span>❤️🔥💡 19.3K</span>
+        <span style="display:flex;gap:12px;"><span>987 comentários</span><span>3.4K partilhas</span></span>
+      </div>
+      <div style="display:flex;">
+        <button class="fb-reaction-btn" onclick="this.classList.toggle('liked')">👍 Gosto</button>
+        <button class="fb-reaction-btn">💬 Comentar</button>
+        <button class="fb-reaction-btn">↗ Partilhar</button>
+      </div>
+    </div>
+
+    <!-- Post 4 — Educação -->
+    <div class="fb-post reveal">
+      <div class="fb-post-header">
+        <div class="fb-post-avatar"><img src="logo.png" alt=""/></div>
+        <div><div class="fb-post-meta-name">ManyGames</div><div class="fb-post-meta-time">há 6 dias · 🌐</div></div>
+      </div>
+      <div class="fb-post-body">📚 <strong>Educação para todos.</strong><br><br>A ManyGames promove soluções inovadoras para elevar o nível dos sistemas educacionais em todo o mundo. Porque acreditamos que qualquer pessoa com paixão e perseverança pode causar um impacto positivo.</div>
+      <img class="fb-post-photo" src="img_educacao.png" alt="Educação ManyGames"/>
+      <div class="fb-reactions-bar">
+        <span>❤️📚🌍 33.5K</span>
+        <span style="display:flex;gap:12px;"><span>2.1K comentários</span><span>9.7K partilhas</span></span>
+      </div>
+      <div style="display:flex;">
+        <button class="fb-reaction-btn" onclick="this.classList.toggle('liked')">👍 Gosto</button>
+        <button class="fb-reaction-btn">💬 Comentar</button>
+        <button class="fb-reaction-btn">↗ Partilhar</button>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="footer-logo"><img src="logo.png" alt=""/><span class="footer-logo-text">MANY<span>GAMES</span></span></div>
+  <nav class="footer-nav">
+    <a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="jogo.html">Jogo</a>
+    <a href="equipa.html">Equipa</a><a href="rh.html">Carreiras</a><a href="regulamento.html">Regulamento</a><a href="contacto.html">Contacto</a>
+  </nav>
+  <p>© 2015–2026 ManyGames · Porto, Portugal</p>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

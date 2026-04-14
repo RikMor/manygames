@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ManyGames – Kill of Reason</title>
+  <link rel="stylesheet" href="shared.css"/>
+  <style>
+    .kor-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: clamp(3rem, 8vw, 7rem);
+      color: var(--accent);
+      letter-spacing: 6px;
+      line-height: 1;
+    }
+    .timeline { position: relative; padding-left: 32px; }
+    .timeline::before { content:''; position:absolute; left:0; top:0; bottom:0; width:2px; background:var(--border); }
+    .timeline-item { position: relative; padding-bottom: 40px; }
+    .timeline-item::before {
+      content:''; position:absolute; left:-37px; top:4px;
+      width:12px; height:12px; border-radius:50%;
+      background:var(--accent); border:2px solid var(--bg);
+    }
+    .timeline-year {
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.75rem; color: var(--cyan);
+      letter-spacing: 3px; margin-bottom: 6px;
+    }
+    .timeline-title {
+      font-family: 'Bebas Neue', sans-serif;
+      font-size: 1.4rem; letter-spacing: 2px;
+      color: var(--text); margin-bottom: 6px;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="ManyGames logo"/><span class="nav-logo-text">MANY<span>GAMES</span></span></a>
+  <button class="nav-mobile-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="jogo.html">Kill of Reason</a></li>
+    <li><a href="equipa.html">Equipa</a></li>
+    <li><a href="rh.html">Carreiras</a></li>
+    <li><a href="regulamento.html">Regulamento</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero" style="min-height:50vh;">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-content">
+    <div class="page-tag">// O nosso jogo · MOBA · Free-to-Play</div>
+    <div class="kor-title">KILL OF<br>REASON</div>
+    <p class="page-subtitle">O jogo de PC mais jogado do mundo. Uma das 20 franquias mais rentáveis da história dos videojogos.</p>
+  </div>
+</div>
+
+<!-- STATS -->
+<section class="alt">
+  <div class="grid-4 reveal">
+    <div class="stat-block"><div class="n">8M+</div><div class="l">Jogadores Médios Online</div></div>
+    <div class="stat-block"><div class="n">€15B</div><div class="l">Receita Acumulada</div></div>
+    <div class="stat-block"><div class="n">100K+</div><div class="l">Espectadores DreamHack</div></div>
+    <div class="stat-block"><div class="n">Top 20</div><div class="l">Franquias Mais Rentáveis</div></div>
+  </div>
+</section>
+
+<!-- SOBRE O JOGO -->
+<section>
+  <div class="grid-2">
+    <div class="reveal">
+      <div class="section-tag">// O que é</div>
+      <h2>O JOGO</h2>
+      <div class="section-line"></div>
+      <p>O <strong>Kill of Reason</strong> é um jogo MOBA (Multiplayer Online Battle Arena) free-to-play, constantemente em desenvolvimento para se adequar às diferentes necessidades da sua comunidade.</p>
+      <p>Um dos princípios fundamentais do Kill of Reason é ser <strong>gratuito com microtransações cosméticas</strong> — as compras realizadas dentro do jogo nunca são necessárias para ter sucesso nas partidas. A ManyGames foca as microtransações nas partes customizáveis dos heróis, permitindo um vasto leque de opções.</p>
+      <p>Em 2019, a versão pré-alfa de KoR foi lançada. Apesar de os seus princípios não agradarem as publicadoras americanas, a ManyGames lançou-se para o mundo através da <strong>Tencent</strong>, que viu o potencial do MOBA e publicou o jogo em território chinês — em apenas dois meses ultrapassou a marca de <strong>100 mil jogadores online</strong>.</p>
+    </div>
+    <div class="reveal">
+      <div class="info-card">
+        <div class="info-row"><span class="info-key">Género</span><span class="info-val">MOBA</span></div>
+        <div class="info-row"><span class="info-key">Modelo</span><span class="info-val">Free-to-Play</span></div>
+        <div class="info-row"><span class="info-key">Lançamento</span><span class="info-val">2018</span></div>
+        <div class="info-row"><span class="info-key">Plataforma</span><span class="info-val">PC</span></div>
+        <div class="info-row"><span class="info-key">Desenvolvedor</span><span class="info-val">ManyGames</span></div>
+        <div class="info-row"><span class="info-key">Publicador (China)</span><span class="info-val">Tencent</span></div>
+        <div class="info-row"><span class="info-key">Jogadores Online (média)</span><span class="info-val">8 milhões+</span></div>
+        <div class="info-row"><span class="info-key">Receita Total</span><span class="info-val">~€15 biliões</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="alt">
+  <div class="reveal"><div class="section-tag">// História do jogo</div><h2>LINHA DO TEMPO</h2><div class="section-line"></div></div>
+  <div class="grid-2">
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-year">// JANEIRO 2015</div>
+        <div class="timeline-title">Fundação da ManyGames</div>
+        <p style="font-size:0.9rem;margin:0;">Ricardo Moreira e Carlos Santos fundam a empresa com €5.000 de capital familiar. Primeiras contratações: Robinson Parker e Eric Wood.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">// 2015–2018</div>
+        <div class="timeline-title">Desenvolvimento do "World of Empires"</div>
+        <p style="font-size:0.9rem;margin:0;">Três anos de desenvolvimento intenso do primeiro projeto, inicialmente chamado World of Empires.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">// 2018</div>
+        <div class="timeline-title">Lançamento do Kill of Reason</div>
+        <p style="font-size:0.9rem;margin:0;">O jogo é renomeado e lançado ao mundo como Kill of Reason. Parceria com a Tencent para distribuição na China.</p>
+      </div>
+    </div>
+    <div class="timeline reveal">
+      <div class="timeline-item">
+        <div class="timeline-year">// 2019</div>
+        <div class="timeline-title">Versão Pré-Alfa e Expansão Global</div>
+        <p style="font-size:0.9rem;margin:0;">Lançamento da versão pré-alfa. Em dois meses, 100 mil jogadores online na China. A ManyGames vende participação maioritária à Tencent.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">// 2021</div>
+        <div class="timeline-title">Season One – Primeiro Campeonato</div>
+        <p style="font-size:0.9rem;margin:0;">Lançamento do "Season One" no DreamHack Summer 2021. Mais de 100 mil espectadores simultâneos na Twitch. Marco histórico no e-sports.</p>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">// HOJE</div>
+        <div class="timeline-title">Fenómeno Mundial</div>
+        <p style="font-size:0.9rem;margin:0;">8 milhões de jogadores online em média. €15 biliões de receita acumulada. Uma das 20 franquias mais rentáveis da história dos videojogos.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- E-SPORTS -->
+<section>
+  <div class="reveal"><div class="section-tag">// Competitivo</div><h2>E-SPORTS</h2><div class="section-line"></div></div>
+  <div class="grid-3">
+    <div class="card reveal">
+      <div style="font-size:2rem;margin-bottom:12px;">🏆</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:var(--accent);margin-bottom:8px;">Season One</div>
+      <p style="font-size:0.9rem;margin:0;">Primeiro campeonato oficial de Kill of Reason, hosteado no DreamHack Summer 2021. Pioneiro na criação de grandes estruturas competitivas no e-sports.</p>
+    </div>
+    <div class="card reveal">
+      <div style="font-size:2rem;margin-bottom:12px;">📺</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:var(--accent);margin-bottom:8px;">100K+ Espectadores</div>
+      <p style="font-size:0.9rem;margin:0;">Mais de 100 mil pessoas acompanharam as partidas via stream na Twitch.tv — superando todas as expetativas da ManyGames.</p>
+    </div>
+    <div class="card reveal">
+      <div style="font-size:2rem;margin-bottom:12px;">🌐</div>
+      <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;letter-spacing:2px;color:var(--accent);margin-bottom:8px;">Comunidade Global</div>
+      <p style="font-size:0.9rem;margin:0;">Uma comunidade mundial de jogadores apaixonados, com ligas e torneios regulares em múltiplos continentes.</p>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section style="background: linear-gradient(135deg, #0a0008 0%, #150010 40%, #0a0008 100%); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);">
+  <div style="text-align:center; max-width: 700px; margin: 0 auto;">
+    <img src="logo.png" alt="ManyGames" style="width:100px;height:100px;object-fit:contain;margin-bottom:24px;filter:drop-shadow(0 0 20px rgba(230,57,70,0.5));"/>
+    <div class="section-tag" style="text-align:center;">// Joga agora · Grátis</div>
+    <h2 style="font-size:clamp(2.5rem,6vw,5rem);margin-bottom:8px;">DESCARREGA<br><span style="color:var(--accent);">KILL OF REASON</span></h2>
+    <p style="margin-bottom:12px;">Free-to-play. Sem pay-to-win. Apenas habilidade.</p>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;">
+      <span class="tag" style="color:var(--accent2);border-color:rgba(255,159,28,.35);">Free to Play</span>
+      <span class="tag">PC · Windows · Mac · Linux</span>
+      <span class="tag">8M+ Jogadores</span>
+      <span class="tag" style="color:var(--accent);border-color:rgba(230,57,70,.35);">MOBA</span>
+    </div>
+
+    <!-- DOWNLOAD BUTTONS -->
+    <div style="display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin-bottom:32px;">
+      <!-- Windows -->
+      <a href="#" onclick="showDownload('windows'); return false;"
+        style="display:flex;align-items:center;gap:14px;padding:18px 28px;background:var(--accent);color:#fff;text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:3px;clip-path:polygon(0 0,calc(100% - 10px) 0,100% 10px,100% 100%,10px 100%,0 calc(100% - 10px));transition:background .2s,transform .1s;"
+        onmouseover="this.style.background='#c0303c';this.style.transform='translateY(-2px)'"
+        onmouseout="this.style.background='var(--accent)';this.style.transform='none'">
+        <span style="font-size:1.5rem;">🪟</span>
+        <div style="text-align:left;">
+          <div style="font-size:0.58rem;letter-spacing:2px;opacity:0.8;">DESCARREGAR PARA</div>
+          <div>WINDOWS</div>
+        </div>
+      </a>
+      <!-- Mac OS -->
+      <a href="#" onclick="showDownload('mac'); return false;"
+        style="display:flex;align-items:center;gap:14px;padding:18px 28px;background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:3px;transition:border-color .2s,color .2s,transform .1s;"
+        onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)';this.style.transform='translateY(-2px)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.3)';this.style.color='#fff';this.style.transform='none'">
+        <span style="font-size:1.5rem;">🍎</span>
+        <div style="text-align:left;">
+          <div style="font-size:0.58rem;letter-spacing:2px;opacity:0.8;">DESCARREGAR PARA</div>
+          <div>MAC OS</div>
+        </div>
+      </a>
+      <!-- Linux -->
+      <a href="#" onclick="showDownload('linux'); return false;"
+        style="display:flex;align-items:center;gap:14px;padding:18px 28px;background:transparent;border:1px solid rgba(255,255,255,0.3);color:#fff;text-decoration:none;font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:3px;transition:border-color .2s,color .2s,transform .1s;"
+        onmouseover="this.style.borderColor='var(--accent)';this.style.color='var(--accent)';this.style.transform='translateY(-2px)'"
+        onmouseout="this.style.borderColor='rgba(255,255,255,0.3)';this.style.color='#fff';this.style.transform='none'">
+        <span style="font-size:1.5rem;">🐧</span>
+        <div style="text-align:left;">
+          <div style="font-size:0.58rem;letter-spacing:2px;opacity:0.8;">DESCARREGAR PARA</div>
+          <div>LINUX</div>
+        </div>
+      </a>
+    </div>
+
+    <!-- DOWNLOAD MODAL (inline, sempre visível quando ativo) -->
+    <div id="dl-modal" style="display:none;background:var(--card);border:1px solid var(--border);padding:32px;max-width:480px;margin:32px auto 0;position:relative;text-align:left;">
+      <div style="position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);"></div>
+      <button onclick="document.getElementById('dl-modal').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;color:var(--muted);font-size:1.2rem;cursor:pointer;">✕</button>
+      <div id="dl-icon" style="font-size:2.5rem;margin-bottom:12px;">🎮</div>
+      <div id="dl-title" style="font-family:'Bebas Neue',sans-serif;font-size:1.8rem;letter-spacing:3px;color:#fff;margin-bottom:8px;"></div>
+      <p id="dl-desc" style="font-size:0.9rem;margin-bottom:24px;color:var(--muted);"></p>
+      <!-- fake progress -->
+      <div style="background:rgba(255,255,255,0.06);height:6px;border-radius:0;margin-bottom:8px;overflow:hidden;">
+        <div id="dl-bar" style="height:100%;width:0%;background:linear-gradient(90deg,var(--accent),var(--accent2));"></div>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;">
+        <span id="dl-pct" style="font-family:'Share Tech Mono',monospace;font-size:0.75rem;color:var(--accent);">0%</span>
+        <span style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;color:var(--muted);">Kill_of_Reason_Setup.exe · 4.2 GB</span>
+      </div>
+      <div id="dl-done" style="display:none;margin-top:20px;padding:16px;background:rgba(230,57,70,0.08);border:1px solid rgba(230,57,70,0.3);font-family:'Share Tech Mono',monospace;font-size:0.8rem;color:var(--accent);">
+        ✓ DOWNLOAD CONCLUÍDO · Abre o instalador para jogar!
+      </div>
+    </div>
+
+    <p style="font-size:0.78rem;color:var(--muted);margin-top:24px;">Requisitos mínimos: Windows 10 / macOS 12 · 8GB RAM · GPU DirectX 11 · 50GB espaço</p>
+  </div>
+</section>
+
+<script>
+function showDownload(platform) {
+  const modal = document.getElementById('dl-modal');
+  const bar = document.getElementById('dl-bar');
+  const pct = document.getElementById('dl-pct');
+  const done = document.getElementById('dl-done');
+  const title = document.getElementById('dl-title');
+  const desc = document.getElementById('dl-desc');
+  const icon = document.getElementById('dl-icon');
+
+  // Reset
+  done.style.display = 'none';
+  bar.style.transition = 'none';
+  bar.style.width = '0%';
+  pct.textContent = '0%';
+
+  const info = {
+    windows: { icon:'🪟', title:'A DESCARREGAR PARA WINDOWS', desc:'O teu download de Kill of Reason começou. O instalador será guardado na pasta Downloads.' },
+    mac:     { icon:'🍎', title:'A DESCARREGAR PARA MAC OS',  desc:'O teu download de Kill of Reason para macOS começou. Abre o ficheiro .dmg quando terminar.' },
+    linux:   { icon:'🐧', title:'A DESCARREGAR PARA LINUX',   desc:'O teu download para Linux começou. Compatível com Ubuntu 20.04+, Debian 11+ e Arch.' }
+  };
+  const p = info[platform];
+  icon.textContent  = p.icon;
+  title.textContent = p.title;
+  desc.textContent  = p.desc;
+
+  // Show modal
+  modal.style.display = 'block';
+
+  // Start progress
+  setTimeout(() => {
+    bar.style.transition = 'width 3s linear';
+    bar.style.width = '100%';
+  }, 50);
+
+  let prog = 0;
+  const iv = setInterval(() => {
+    prog = Math.min(prog + Math.random() * 4, 100);
+    pct.textContent = Math.floor(prog) + '%';
+    if (prog >= 100) {
+      clearInterval(iv);
+      pct.textContent = '100%';
+      done.style.display = 'block';
+    }
+  }, 100);
+}
+</script>
+
+<footer>
+  <div class="footer-logo"><img src="logo.png" alt=""/><span class="footer-logo-text">MANY<span>GAMES</span></span></div>
+  <nav class="footer-nav">
+    <a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="jogo.html">Jogo</a>
+    <a href="equipa.html">Equipa</a><a href="rh.html">Carreiras</a><a href="regulamento.html">Regulamento</a><a href="faq.html">FAQ</a><a href="contacto.html">Contacto</a>
+  </nav>
+  <p>© 2015–2026 ManyGames · Porto, Portugal · ISO 9001:2015</p>
+</footer>
+<script src="shared.js"></script>
+</body>
+</html>

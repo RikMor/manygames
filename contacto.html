@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="pt">
+<head>
+  <meta charset="UTF-8"/><meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ManyGames – Contacto</title>
+  <link rel="stylesheet" href="shared.css"/>
+  <style>
+    .form-group { margin-bottom: 20px; }
+    .form-group label {
+      display: block;
+      font-family: 'Share Tech Mono', monospace;
+      font-size: 0.7rem; letter-spacing: 3px;
+      color: var(--muted); text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+    .form-group input,
+    .form-group textarea,
+    .form-group select {
+      width: 100%; padding: 13px 16px;
+      background: var(--card); border: 1px solid var(--border);
+      color: var(--text); font-family: 'Rajdhani', sans-serif;
+      font-size: 1rem; outline: none;
+      transition: border-color .2s;
+    }
+    .form-group input:focus,
+    .form-group textarea:focus,
+    .form-group select:focus { border-color: var(--cyan); }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .form-group select option { background: var(--card); }
+    .contact-item { display:flex; gap:16px; align-items:flex-start; margin-bottom:28px; }
+    .contact-icon { font-size:1.6rem; flex-shrink:0; margin-top:2px; }
+    .contact-label { font-family:'Share Tech Mono',monospace; font-size:0.7rem; color:var(--muted); letter-spacing:2px; text-transform:uppercase; margin-bottom:4px; }
+    .contact-val { font-family:'Bebas Neue',sans-serif; font-size:1.2rem; letter-spacing:1px; color:var(--text); }
+    .social-grid { display:grid; grid-template-columns: 1fr 1fr; gap:12px; }
+    .social-btn-full {
+      display:flex; align-items:center; gap:12px;
+      padding: 14px 20px;
+      border: 1px solid var(--border);
+      color: var(--muted); text-decoration:none;
+      font-size:0.85rem; letter-spacing:1px;
+      transition:border-color .2s, color .2s, background .2s;
+    }
+    .social-btn-full:hover { border-color:var(--cyan); color:var(--cyan); background:rgba(0,212,255,0.05); }
+    .form-success {
+      display:none; padding:20px;
+      background:rgba(0,212,255,0.08); border:1px solid rgba(0,212,255,0.3);
+      color:var(--cyan); font-family:'Share Tech Mono',monospace; font-size:0.85rem;
+      margin-top:16px; text-align:center;
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <a href="index.html" class="nav-logo"><img src="logo.png" alt="ManyGames logo"/><span class="nav-logo-text">MANY<span>GAMES</span></span></a>
+  <button class="nav-mobile-toggle">☰</button>
+  <ul class="nav-links">
+    <li><a href="index.html">Início</a></li>
+    <li><a href="sobre.html">Sobre</a></li>
+    <li><a href="jogo.html">Kill of Reason</a></li>
+    <li><a href="equipa.html">Equipa</a></li>
+    <li><a href="rh.html">Carreiras</a></li>
+    <li><a href="regulamento.html">Regulamento</a></li>
+    <li><a href="faq.html">FAQ</a></li>
+    <li><a href="contacto.html">Contacto</a></li>
+  </ul>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-glow"></div>
+  <div class="page-hero-content">
+    <div class="page-tag">// 07 · Fala connosco</div>
+    <h1 class="page-title">ENTRA EM<br><span>CONTACTO</span></h1>
+    <p class="page-subtitle">Tens uma dúvida, proposta ou queres fazer parte da ManyGames? Fala connosco.</p>
+  </div>
+</div>
+
+<!-- CONTACTO PRINCIPAL -->
+<section>
+  <div class="grid-2">
+    <!-- INFO -->
+    <div class="reveal">
+      <div class="section-tag">// Onde estamos</div>
+      <h2>INFORMAÇÕES</h2>
+      <div class="section-line"></div>
+
+      <div class="contact-item">
+        <div class="contact-icon">📍</div>
+        <div>
+          <div class="contact-label">Sede</div>
+          <div class="contact-val">Valongo, Porto</div>
+          <p style="font-size:0.85rem;margin:4px 0 0;color:var(--muted);">Portugal</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🌐</div>
+        <div>
+          <div class="contact-label">Website</div>
+          <div class="contact-val">www.manygames.com</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">📧</div>
+        <div>
+          <div class="contact-label">Email Geral</div>
+          <div class="contact-val">info@manygames.com</div>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">💼</div>
+        <div>
+          <div class="contact-label">Carreiras / RH</div>
+          <div class="contact-val">rh@manygames.com</div>
+          <p style="font-size:0.85rem;margin:4px 0 0;color:var(--muted);">Envia CV + carta de motivação</p>
+        </div>
+      </div>
+      <div class="contact-item">
+        <div class="contact-icon">🎮</div>
+        <div>
+          <div class="contact-label">Suporte ao Jogador</div>
+          <div class="contact-val">support@manygames.com</div>
+          <p style="font-size:0.85rem;margin:4px 0 0;color:var(--muted);">Problemas técnicos e conta</p>
+        </div>
+      </div>
+
+      <div class="divider"></div>
+
+      <div class="section-tag">// Redes sociais</div>
+      <div class="social-grid" style="margin-top:16px;">
+        <a href="twitter.html" class="social-btn-full">🐦 Twitter<br><span style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;color:var(--muted);">@manygames</span></a>
+        <a href="instagram.html" class="social-btn-full">📸 Instagram<br><span style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;color:var(--muted);">@manygames</span></a>
+        <a href="facebook.html" class="social-btn-full">👍 Facebook<br><span style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;color:var(--muted);">manygames</span></a>
+        <a href="reddit.html" class="social-btn-full">🎮 Reddit<br><span style="font-family:'Share Tech Mono',monospace;font-size:0.7rem;color:var(--muted);">r/manygames</span></a>
+      </div>
+    </div>
+
+    <!-- FORMULÁRIO -->
+    <div class="reveal">
+      <div class="section-tag">// Mensagem</div>
+      <h2>ENVIA-NOS UMA MENSAGEM</h2>
+      <div class="section-line"></div>
+      <div style="background:var(--card);border:1px solid var(--border);padding:32px;position:relative;">
+        <div style="position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--accent),var(--accent2),transparent);"></div>
+        <div class="form-group">
+          <label>Nome Completo</label>
+          <input type="text" placeholder="O teu nome" id="f-nome"/>
+        </div>
+        <div class="form-group">
+          <label>Email</label>
+          <input type="email" placeholder="email@exemplo.com" id="f-email"/>
+        </div>
+        <div class="form-group">
+          <label>Assunto</label>
+          <select id="f-assunto">
+            <option value="">Seleciona um assunto</option>
+            <option>Candidatura / Carreiras</option>
+            <option>Parceria de Negócios</option>
+            <option>Suporte ao Jogador</option>
+            <option>Imprensa / Media</option>
+            <option>Outro</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Mensagem</label>
+          <textarea placeholder="Escreve a tua mensagem aqui..." id="f-msg"></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%;text-align:center;border:none;cursor:pointer;font-size:1rem;" onclick="submitForm()">Enviar Mensagem</button>
+        <div class="form-success" id="success-msg">// MENSAGEM ENVIADA COM SUCESSO · Em breve entraremos em contacto.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA / LOCALIZAÇÃO -->
+<section class="alt">
+  <div class="reveal"><div class="section-tag">// Visita-nos</div><h2>LOCALIZAÇÃO</h2><div class="section-line"></div></div>
+  <div style="background:var(--card);border:1px solid var(--border);padding:40px;text-align:center;" class="reveal">
+    <div style="font-size:3rem;margin-bottom:16px;">📍</div>
+    <div style="font-family:'Bebas Neue',sans-serif;font-size:2rem;letter-spacing:3px;margin-bottom:8px;">VALONGO · PORTO · PORTUGAL</div>
+    <p style="max-width:500px;margin:0 auto 24px;">As nossas instalações ficam em Valongo, num edifício moderno com espaço suficiente para manutenções e expansões futuras. Um espaço agradável onde cada colaborador se sente bem a trabalhar.</p>
+    <div style="display:flex;gap:20px;justify-content:center;flex-wrap:wrap;">
+      <div style="text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--accent);">4 Salas</div>
+        <div style="font-size:0.75rem;color:var(--muted);letter-spacing:1px;">Desenvolvimento/Programação</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--accent);">1 Sala</div>
+        <div style="font-size:0.75rem;color:var(--muted);letter-spacing:1px;">Convívio</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--accent);">Secretaria</div>
+        <div style="font-size:0.75rem;color:var(--muted);letter-spacing:1px;">+ Sala do Diretor</div>
+      </div>
+      <div style="text-align:center;">
+        <div style="font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--accent);">Vestuário</div>
+        <div style="font-size:0.75rem;color:var(--muted);letter-spacing:1px;">Com Cacifos</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-logo"><img src="logo.png" alt=""/><span class="footer-logo-text">MANY<span>GAMES</span></span></div>
+  <nav class="footer-nav">
+    <a href="index.html">Início</a><a href="sobre.html">Sobre</a><a href="jogo.html">Jogo</a>
+    <a href="equipa.html">Equipa</a><a href="rh.html">Carreiras</a><a href="regulamento.html">Regulamento</a><a href="faq.html">FAQ</a><a href="contacto.html">Contacto</a>
+  </nav>
+  <p>© 2015–2026 ManyGames · Porto, Portugal · ISO 9001:2015</p>
+</footer>
+<script src="shared.js"></script>
+<script>
+function submitForm() {
+  const nome = document.getElementById('f-nome').value.trim();
+  const email = document.getElementById('f-email').value.trim();
+  const msg = document.getElementById('f-msg').value.trim();
+  if (!nome || !email || !msg) {
+    alert('Por favor preenche todos os campos obrigatórios.');
+    return;
+  }
+  document.getElementById('success-msg').style.display = 'block';
+  document.getElementById('f-nome').value = '';
+  document.getElementById('f-email').value = '';
+  document.getElementById('f-msg').value = '';
+  document.getElementById('f-assunto').value = '';
+}
+</script>
+</body>
+</html>
