@@ -59,7 +59,7 @@ nav {
   padding: 8px 13px; transition: color .2s;
 }
 .nav-links a:hover { color: #fff; }
-.nav-links a.active { color: var(--accent); border-bottom: 2px solid var(--accent); }
+.nav-links a.active { color: #00e676; border-bottom: 2px solid #00e676; }
 .nav-mobile-toggle { display: none; background: none; border: none; color: var(--text); font-size: 1.5rem; cursor: pointer; }
 
 /* PAGE HERO */
